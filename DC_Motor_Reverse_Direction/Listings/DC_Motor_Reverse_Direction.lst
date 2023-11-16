@@ -1,0 +1,47 @@
+C51 COMPILER V9.59.0.0   DC_MOTOR_REVERSE_DIRECTION                                        11/15/2023 18:35:57 PAGE 1   
+
+
+C51 COMPILER V9.59.0.0, COMPILATION OF MODULE DC_MOTOR_REVERSE_DIRECTION
+OBJECT MODULE PLACED IN .\Objects\DC_Motor_Reverse_Direction.obj
+COMPILER INVOKED BY: C:\Keil_v5\C51\BIN\C51.EXE DC_Motor_Reverse_Direction.c OPTIMIZE(8,SPEED) BROWSE DEBUG OBJECTEXTEND
+                    - PRINT(.\Listings\DC_Motor_Reverse_Direction.lst) TABS(2) OBJECT(.\Objects\DC_Motor_Reverse_Direction.obj)
+
+line level    source
+
+   1          //inclduing required lib's
+   2          #include<reg51.h>
+   3          
+   4          
+   5          //sbit declerations
+   6          sbit EN1 = P2^0;
+   7          sbit IN1 = P2^6;
+   8          sbit IN2 = P2^7;
+   9          
+  10          //main function
+  11          void main()
+  12          {
+  13   1        //initialization
+  14   1        EN1 = 1;
+  15   1        
+  16   1        //forever loop (or we can use for(;;))
+  17   1        while(1)
+  18   1        {
+  19   2          //for reverse direction
+  20   2          IN1 = 0;
+  21   2          IN2 = 1;
+  22   2        }
+  23   1      }
+
+
+MODULE INFORMATION:   STATIC OVERLAYABLE
+   CODE SIZE        =      8    ----
+   CONSTANT SIZE    =   ----    ----
+   XDATA SIZE       =   ----    ----
+   PDATA SIZE       =   ----    ----
+   DATA SIZE        =   ----    ----
+   IDATA SIZE       =   ----    ----
+   BIT SIZE         =   ----    ----
+END OF MODULE INFORMATION.
+
+
+C51 COMPILATION COMPLETE.  0 WARNING(S),  0 ERROR(S)

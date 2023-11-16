@@ -1,0 +1,146 @@
+BL51 BANKED LINKER/LOCATER V6.22.2.0                                                    11/15/2023  21:14:54  PAGE 1
+
+
+BL51 BANKED LINKER/LOCATER V6.22.2.0, INVOKED BY:
+C:\KEIL_V5\C51\BIN\BL51.EXE .\Objects\STARTUP.obj, .\Objects\One_Switch_Motor_Direction_Control_with_Not.obj TO .\Object
+>> s\One_Switch_Motor_Direction_Control_with_Not PRINT (.\Listings\One_Switch_Motor_Direction_Control_with_Not.m51)
+
+
+MEMORY MODEL: SMALL
+
+
+INPUT MODULES INCLUDED:
+  .\Objects\STARTUP.obj (?C_STARTUP)
+  .\Objects\One_Switch_Motor_Direction_Control_with_Not.obj (ONE_SWITCH_MOTOR_DIRECTION_CONTROL_WITH_N)
+
+
+LINK MAP OF MODULE:  .\Objects\One_Switch_Motor_Direction_Control_with_Not (?C_STARTUP)
+
+
+            TYPE    BASE      LENGTH    RELOCATION   SEGMENT NAME
+            -----------------------------------------------------
+
+            * * * * * * *   D A T A   M E M O R Y   * * * * * * *
+            REG     0000H     0008H     ABSOLUTE     "REG BANK 0"
+            IDATA   0008H     0001H     UNIT         ?STACK
+
+            * * * * * * *   C O D E   M E M O R Y   * * * * * * *
+            CODE    0000H     0003H     ABSOLUTE     
+                    0003H     07FDH                  *** GAP ***
+            CODE    0800H     0020H     UNIT         ?PR?_DELAY?ONE_SWITCH_MOTOR_DIRECTION_CONTROL_WITH_N
+            CODE    0820H     001DH     UNIT         ?PR?MAIN?ONE_SWITCH_MOTOR_DIRECTION_CONTROL_WITH_N
+            CODE    083DH     000CH     UNIT         ?C_C51STARTUP
+
+
+
+OVERLAY MAP OF MODULE:   .\Objects\One_Switch_Motor_Direction_Control_with_Not (?C_STARTUP)
+
+
+SEGMENT
+  +--> CALLED SEGMENT
+---------------------
+?C_C51STARTUP
+  +--> ?PR?MAIN?ONE_SWITCH_MOTOR_DIRECTION_C...
+
+?PR?MAIN?ONE_SWITCH_MOTOR_DIRECTION_C...
+  +--> ?PR?_DELAY?ONE_SWITCH_MOTOR_DIRECTION...
+
+
+
+SYMBOL TABLE OF MODULE:  .\Objects\One_Switch_Motor_Direction_Control_with_Not (?C_STARTUP)
+
+  VALUE           TYPE          NAME
+  ----------------------------------
+
+  -------         MODULE        ?C_STARTUP
+  C:083DH         SEGMENT       ?C_C51STARTUP
+  I:0008H         SEGMENT       ?STACK
+  C:0000H         PUBLIC        ?C_STARTUP
+  D:00E0H         SYMBOL        ACC
+  D:00F0H         SYMBOL        B
+  D:0083H         SYMBOL        DPH
+BL51 BANKED LINKER/LOCATER V6.22.2.0                                                  11/15/2023  21:14:54  PAGE 2
+
+
+  D:0082H         SYMBOL        DPL
+  N:0000H         SYMBOL        IBPSTACK
+  N:0100H         SYMBOL        IBPSTACKTOP
+  N:0080H         SYMBOL        IDATALEN
+  C:0840H         SYMBOL        IDATALOOP
+  N:0000H         SYMBOL        PBPSTACK
+  N:0100H         SYMBOL        PBPSTACKTOP
+  N:0000H         SYMBOL        PDATALEN
+  N:0000H         SYMBOL        PDATASTART
+  N:0000H         SYMBOL        PPAGE
+  N:0000H         SYMBOL        PPAGEENABLE
+  D:00A0H         SYMBOL        PPAGE_SFR
+  D:0081H         SYMBOL        SP
+  C:083DH         SYMBOL        STARTUP1
+  N:0000H         SYMBOL        XBPSTACK
+  N:0000H         SYMBOL        XBPSTACKTOP
+  N:0000H         SYMBOL        XDATALEN
+  N:0000H         SYMBOL        XDATASTART
+  C:0000H         LINE#         126
+  C:083DH         LINE#         133
+  C:083FH         LINE#         134
+  C:0840H         LINE#         135
+  C:0841H         LINE#         136
+  C:0843H         LINE#         185
+  C:0846H         LINE#         196
+  -------         ENDMOD        ?C_STARTUP
+
+  -------         MODULE        ONE_SWITCH_MOTOR_DIRECTION_CONTROL_WITH_N
+  C:0000H         SYMBOL        _ICE_DUMMY_
+  D:0090H         PUBLIC        P1
+  C:0800H         PUBLIC        _delay
+  B:0090H.0       PUBLIC        sw1
+  B:0090H.1       PUBLIC        sw2
+  C:0820H         PUBLIC        main
+  B:0090H.6       PUBLIC        motor_terminal_a
+  B:0090H.7       PUBLIC        motor_terminal_b
+  -------         PROC          MAIN
+  C:0820H         LINE#         14
+  C:0820H         LINE#         15
+  C:0820H         LINE#         17
+  C:0822H         LINE#         18
+  C:0824H         LINE#         21
+  C:0824H         LINE#         22
+  C:0824H         LINE#         23
+  C:0827H         LINE#         24
+  C:0827H         LINE#         25
+  C:0829H         LINE#         26
+  C:082BH         LINE#         27
+  C:0832H         LINE#         28
+  C:0834H         LINE#         29
+  C:0837H         LINE#         30
+  C:0837H         LINE#         31
+  C:0839H         LINE#         32
+  C:083BH         LINE#         33
+  C:083BH         LINE#         34
+  -------         ENDPROC       MAIN
+  -------         PROC          _DELAY
+BL51 BANKED LINKER/LOCATER V6.22.2.0                                                  11/15/2023  21:14:54  PAGE 3
+
+
+  D:0006H         SYMBOL        time
+  -------         DO            
+  D:0004H         SYMBOL        i
+  D:0002H         SYMBOL        j
+  -------         ENDDO         
+  C:0800H         LINE#         39
+  C:0800H         LINE#         40
+  C:0800H         LINE#         42
+  C:080AH         LINE#         43
+  C:080AH         LINE#         44
+  C:080DH         LINE#         45
+  C:0818H         LINE#         46
+  C:081FH         LINE#         47
+  -------         ENDPROC       _DELAY
+  -------         ENDMOD        ONE_SWITCH_MOTOR_DIRECTION_CONTROL_WITH_N
+
+******************************************************************************
+* RESTRICTED VERSION WITH 0800H BYTE CODE SIZE LIMIT; USED: 004CH BYTE ( 3%) *
+******************************************************************************
+
+Program Size: data=9.0 xdata=0 code=76
+LINK/LOCATE RUN COMPLETE.  0 WARNING(S),  0 ERROR(S)

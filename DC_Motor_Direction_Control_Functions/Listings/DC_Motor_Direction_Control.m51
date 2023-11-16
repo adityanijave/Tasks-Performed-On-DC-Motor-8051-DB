@@ -1,0 +1,195 @@
+BL51 BANKED LINKER/LOCATER V6.22.2.0                                                    11/15/2023  19:11:24  PAGE 1
+
+
+BL51 BANKED LINKER/LOCATER V6.22.2.0, INVOKED BY:
+C:\KEIL_V5\C51\BIN\BL51.EXE .\Objects\STARTUP.obj, .\Objects\simple_dc_motorcontrol.obj, .\Objects\main.obj TO .\Objects
+>> \DC_Motor_Direction_Control PRINT (.\Listings\DC_Motor_Direction_Control.m51)
+
+
+MEMORY MODEL: SMALL
+
+
+INPUT MODULES INCLUDED:
+  .\Objects\STARTUP.obj (?C_STARTUP)
+  .\Objects\simple_dc_motorcontrol.obj (SIMPLE_DC_MOTORCONTROL)
+  .\Objects\main.obj (MAIN)
+
+
+LINK MAP OF MODULE:  .\Objects\DC_Motor_Direction_Control (?C_STARTUP)
+
+
+            TYPE    BASE      LENGTH    RELOCATION   SEGMENT NAME
+            -----------------------------------------------------
+
+            * * * * * * *   D A T A   M E M O R Y   * * * * * * *
+            REG     0000H     0008H     ABSOLUTE     "REG BANK 0"
+            IDATA   0008H     0001H     UNIT         ?STACK
+
+            * * * * * * *   C O D E   M E M O R Y   * * * * * * *
+            CODE    0000H     0003H     ABSOLUTE     
+                    0003H     07FDH                  *** GAP ***
+            CODE    0800H     0024H     UNIT         ?PR?_DELAY?MAIN
+            CODE    0824H     0023H     UNIT         ?PR?MAIN?MAIN
+            CODE    0847H     000CH     UNIT         ?C_C51STARTUP
+            CODE    0853H     0005H     UNIT         ?PR?FORWORD_MOTION?SIMPLE_DC_MOTORCONTROL
+            CODE    0858H     0005H     UNIT         ?PR?REVERSE_MOTION?SIMPLE_DC_MOTORCONTROL
+            CODE    085DH     0005H     UNIT         ?PR?STOP_MOTION?SIMPLE_DC_MOTORCONTROL
+
+
+
+OVERLAY MAP OF MODULE:   .\Objects\DC_Motor_Direction_Control (?C_STARTUP)
+
+
+SEGMENT
+  +--> CALLED SEGMENT
+---------------------
+?C_C51STARTUP
+  +--> ?PR?MAIN?MAIN
+
+?PR?MAIN?MAIN
+  +--> ?PR?_DELAY?MAIN
+  +--> ?PR?FORWORD_MOTION?SIMPLE_DC_MOTORCON...
+  +--> ?PR?REVERSE_MOTION?SIMPLE_DC_MOTORCON...
+  +--> ?PR?STOP_MOTION?SIMPLE_DC_MOTORCONTROL
+
+
+
+SYMBOL TABLE OF MODULE:  .\Objects\DC_Motor_Direction_Control (?C_STARTUP)
+
+  VALUE           TYPE          NAME
+  ----------------------------------
+
+BL51 BANKED LINKER/LOCATER V6.22.2.0                                                  11/15/2023  19:11:24  PAGE 2
+
+
+  -------         MODULE        ?C_STARTUP
+  C:0847H         SEGMENT       ?C_C51STARTUP
+  I:0008H         SEGMENT       ?STACK
+  C:0000H         PUBLIC        ?C_STARTUP
+  D:00E0H         SYMBOL        ACC
+  D:00F0H         SYMBOL        B
+  D:0083H         SYMBOL        DPH
+  D:0082H         SYMBOL        DPL
+  N:0000H         SYMBOL        IBPSTACK
+  N:0100H         SYMBOL        IBPSTACKTOP
+  N:0080H         SYMBOL        IDATALEN
+  C:084AH         SYMBOL        IDATALOOP
+  N:0000H         SYMBOL        PBPSTACK
+  N:0100H         SYMBOL        PBPSTACKTOP
+  N:0000H         SYMBOL        PDATALEN
+  N:0000H         SYMBOL        PDATASTART
+  N:0000H         SYMBOL        PPAGE
+  N:0000H         SYMBOL        PPAGEENABLE
+  D:00A0H         SYMBOL        PPAGE_SFR
+  D:0081H         SYMBOL        SP
+  C:0847H         SYMBOL        STARTUP1
+  N:0000H         SYMBOL        XBPSTACK
+  N:0000H         SYMBOL        XBPSTACKTOP
+  N:0000H         SYMBOL        XDATALEN
+  N:0000H         SYMBOL        XDATASTART
+  C:0000H         LINE#         126
+  C:0847H         LINE#         133
+  C:0849H         LINE#         134
+  C:084AH         LINE#         135
+  C:084BH         LINE#         136
+  C:084DH         LINE#         185
+  C:0850H         LINE#         196
+  -------         ENDMOD        ?C_STARTUP
+
+  -------         MODULE        SIMPLE_DC_MOTORCONTROL
+  C:0000H         SYMBOL        _ICE_DUMMY_
+  D:0090H         PUBLIC        P1
+  D:00A0H         PUBLIC        P2
+  C:0853H         PUBLIC        forword_motion
+  C:085DH         PUBLIC        stop_motion
+  B:00A0H.0       PUBLIC        I1
+  B:00A0H.1       PUBLIC        I2
+  C:0858H         PUBLIC        reverse_motion
+  -------         PROC          FORWORD_MOTION
+  C:0853H         LINE#         5
+  C:0853H         LINE#         6
+  C:0853H         LINE#         7
+  C:0855H         LINE#         8
+  C:0857H         LINE#         9
+  -------         ENDPROC       FORWORD_MOTION
+  -------         PROC          REVERSE_MOTION
+  C:0858H         LINE#         11
+  C:0858H         LINE#         12
+  C:0858H         LINE#         13
+  C:085AH         LINE#         14
+  C:085CH         LINE#         15
+  -------         ENDPROC       REVERSE_MOTION
+BL51 BANKED LINKER/LOCATER V6.22.2.0                                                  11/15/2023  19:11:24  PAGE 3
+
+
+  -------         PROC          STOP_MOTION
+  C:085DH         LINE#         18
+  C:085DH         LINE#         19
+  C:085DH         LINE#         20
+  C:085FH         LINE#         21
+  C:0861H         LINE#         22
+  -------         ENDPROC       STOP_MOTION
+  -------         ENDMOD        SIMPLE_DC_MOTORCONTROL
+
+  -------         MODULE        MAIN
+  C:0000H         SYMBOL        _ICE_DUMMY_
+  D:0090H         PUBLIC        P1
+  D:00A0H         PUBLIC        P2
+  C:0804H         PUBLIC        _delay
+  C:0824H         PUBLIC        main
+  B:0090H.2       PUBLIC        stop_motion_switch
+  B:00A0H.2       PUBLIC        EN1
+  B:0090H.1       PUBLIC        reverse_motion_switch
+  B:0090H.0       PUBLIC        forword_motion_switch
+  -------         PROC          MAIN
+  C:0824H         LINE#         7
+  C:0824H         LINE#         8
+  C:0824H         LINE#         9
+  C:0826H         LINE#         11
+  C:0826H         LINE#         12
+  C:0826H         LINE#         13
+  C:0829H         LINE#         14
+  C:0829H         LINE#         15
+  C:082CH         LINE#         16
+  C:082FH         LINE#         17
+  C:0831H         LINE#         19
+  C:0834H         LINE#         20
+  C:0834H         LINE#         21
+  C:0837H         LINE#         22
+  C:083AH         LINE#         23
+  C:083CH         LINE#         24
+  C:083FH         LINE#         25
+  C:083FH         LINE#         26
+  C:0842H         LINE#         27
+  C:0845H         LINE#         28
+  C:0845H         LINE#         29
+  -------         ENDPROC       MAIN
+  C:0800H         SYMBOL        L?0019
+  -------         PROC          L?0018
+  -------         ENDPROC       L?0018
+  C:0800H         SYMBOL        L?0019
+  -------         PROC          _DELAY
+  D:0006H         SYMBOL        time
+  -------         DO            
+  D:0004H         SYMBOL        i
+  D:0002H         SYMBOL        j
+  -------         ENDDO         
+  C:0804H         LINE#         33
+  C:0804H         LINE#         34
+  C:0804H         LINE#         36
+  C:080EH         LINE#         37
+  C:080EH         LINE#         38
+BL51 BANKED LINKER/LOCATER V6.22.2.0                                                  11/15/2023  19:11:24  PAGE 4
+
+
+  C:081CH         LINE#         39
+  C:0823H         LINE#         40
+  -------         ENDPROC       _DELAY
+  -------         ENDMOD        MAIN
+
+******************************************************************************
+* RESTRICTED VERSION WITH 0800H BYTE CODE SIZE LIMIT; USED: 0065H BYTE ( 4%) *
+******************************************************************************
+
+Program Size: data=9.0 xdata=0 code=101
+LINK/LOCATE RUN COMPLETE.  0 WARNING(S),  0 ERROR(S)

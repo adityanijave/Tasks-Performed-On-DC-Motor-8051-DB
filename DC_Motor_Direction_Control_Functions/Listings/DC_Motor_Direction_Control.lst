@@ -1,0 +1,76 @@
+C51 COMPILER V9.59.0.0   DC_MOTOR_DIRECTION_CONTROL                                        11/15/2023 19:10:27 PAGE 1   
+
+
+C51 COMPILER V9.59.0.0, COMPILATION OF MODULE DC_MOTOR_DIRECTION_CONTROL
+OBJECT MODULE PLACED IN .\Objects\DC_Motor_Direction_Control.obj
+COMPILER INVOKED BY: C:\Keil_v5\C51\BIN\C51.EXE DC_Motor_Direction_Control.c OPTIMIZE(8,SPEED) BROWSE DEBUG OBJECTEXTEND
+                    - PRINT(.\Listings\DC_Motor_Direction_Control.lst) TABS(2) OBJECT(.\Objects\DC_Motor_Direction_Control.obj)
+
+line level    source
+
+   1          /*#include<reg51.h>
+   2          
+   3          sbit forword_sw =  P1^0;
+   4          sbit backword_sw = P1^1;
+   5          sbit stop_sw = P1^2;
+   6          
+   7          sbit motor_a = P2^0;
+   8          sbit motor_b = P2^1;
+   9          sbit en = P2^2;
+  10          
+  11          void delay(unsigned int);
+  12          void main()
+  13          {
+  14            
+  15            while(1)
+  16            {
+  17              if(forword_sw == 0)
+  18              {
+  19                delay(30);
+  20                en = 1;
+  21                motor_a = 1;
+  22                motor_b = 0;
+  23                
+  24              }
+  25               if (backword_sw == 0)
+  26              {
+  27                delay(30);
+  28                en = 1;
+  29                motor_a = 0;
+  30                motor_b = 1;
+  31                
+  32              }
+  33              if (stop_sw == 0)
+  34              {
+  35                delay(30);
+  36                en = 0;
+  37              }
+  38                
+  39            }
+  40          }
+  41          
+  42          void delay(unsigned int time)
+  43          {
+  44            unsigned int i,j;
+  45            for(i = 0; i < time; i++)
+  46            {
+  47              for(j = 0; j < 1000; j++);
+  48            }
+  49          }
+  50          */
+
+
+MODULE INFORMATION:   STATIC OVERLAYABLE
+   CODE SIZE        =   ----    ----
+C51 COMPILER V9.59.0.0   DC_MOTOR_DIRECTION_CONTROL                                        11/15/2023 19:10:27 PAGE 2   
+
+   CONSTANT SIZE    =   ----    ----
+   XDATA SIZE       =   ----    ----
+   PDATA SIZE       =   ----    ----
+   DATA SIZE        =   ----    ----
+   IDATA SIZE       =   ----    ----
+   BIT SIZE         =   ----    ----
+END OF MODULE INFORMATION.
+
+
+C51 COMPILATION COMPLETE.  0 WARNING(S),  0 ERROR(S)

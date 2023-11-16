@@ -1,0 +1,74 @@
+C51 COMPILER V9.59.0.0   ONE_SWITCH_MOTOR_DIRECTION_CONTROL_WITH_N                         11/15/2023 21:14:54 PAGE 1   
+
+
+C51 COMPILER V9.59.0.0, COMPILATION OF MODULE ONE_SWITCH_MOTOR_DIRECTION_CONTROL_WITH_N
+OBJECT MODULE PLACED IN .\Objects\One_Switch_Motor_Direction_Control_with_Not.obj
+COMPILER INVOKED BY: C:\Keil_v5\C51\BIN\C51.EXE One_Switch_Motor_Direction_Control_with_Not.c OPTIMIZE(8,SPEED) BROWSE D
+                    -EBUG OBJECTEXTEND PRINT(.\Listings\One_Switch_Motor_Direction_Control_with_Not.lst) TABS(2) OBJECT(.\Objects\One_Switch_
+                    -Motor_Direction_Control_with_Not.obj)
+
+line level    source
+
+   1          //including required lib's
+   2          #include <REGX51.H>
+   3          
+   4          //sbit decleration
+   5          sbit sw1 = P1^0;
+   6          sbit sw2 = P1^1;
+   7          sbit motor_terminal_a = P1^6;
+   8          sbit motor_terminal_b = P1^7;
+   9          
+  10          //forward decleration of user defined funcation
+  11          void delay(unsigned int);
+  12          
+  13          //main funcation
+  14          void main()
+  15          {
+  16   1        //initialization of motor terminals
+  17   1        motor_terminal_a = 1;                                                     //motor_terminal_a = 1;
+  18   1        motor_terminal_b = 0;                                                     //motor_terminal_b = 0;
+  19   1        
+  20   1        //forever loop
+  21   1        while(1)                                                                  //or we can use for(;;)
+  22   1        {
+  23   2          if(sw1 == 0)                                                            //if sw1 is active low then,
+  24   2          {
+  25   3            motor_terminal_a = ~motor_terminal_a;                                 //motor_terminal_a = 0 (for 1st itr.)
+  26   3            motor_terminal_b = ~motor_terminal_b;                                 //motor_terminal_b = 1 (for 1st itr.)
+  27   3            delay(100);                                                           //calling delay funcation with 100
+  28   3          }
+  29   2          else if (sw2 == 0)                                                      //else if sw2 is active low then,
+  30   2          {
+  31   3            motor_terminal_a = 0;                                                 //motor_terminal_a = 0
+  32   3            motor_terminal_b = 0;                                                 //motor_terminal_b = 0
+  33   3          }
+  34   2        }
+  35   1      }
+  36          
+  37          
+  38          //funcation defination of user defined funcation
+  39          void delay(unsigned int time)                                               //delay funcation with one parameter called time
+  40          {
+  41   1        unsigned int i,j;                                                         //delceration of variables inside the funcation
+  42   1        for(i = 0; i < time; i++)                                                 //for loop
+  43   1        {
+  44   2          for(j =0; j < 1000; j++)                                                //nested for loop
+  45   2          {}
+  46   2        }
+  47   1      }
+
+
+MODULE INFORMATION:   STATIC OVERLAYABLE
+   CODE SIZE        =     61    ----
+   CONSTANT SIZE    =   ----    ----
+   XDATA SIZE       =   ----    ----
+C51 COMPILER V9.59.0.0   ONE_SWITCH_MOTOR_DIRECTION_CONTROL_WITH_N                         11/15/2023 21:14:54 PAGE 2   
+
+   PDATA SIZE       =   ----    ----
+   DATA SIZE        =   ----    ----
+   IDATA SIZE       =   ----    ----
+   BIT SIZE         =   ----    ----
+END OF MODULE INFORMATION.
+
+
+C51 COMPILATION COMPLETE.  0 WARNING(S),  0 ERROR(S)

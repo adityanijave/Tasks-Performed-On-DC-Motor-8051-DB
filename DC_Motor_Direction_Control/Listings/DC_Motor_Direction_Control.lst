@@ -1,0 +1,81 @@
+C51 COMPILER V9.59.0.0   DC_MOTOR_DIRECTION_CONTROL                                        11/15/2023 20:57:02 PAGE 1   
+
+
+C51 COMPILER V9.59.0.0, COMPILATION OF MODULE DC_MOTOR_DIRECTION_CONTROL
+OBJECT MODULE PLACED IN .\Objects\DC_Motor_Direction_Control.obj
+COMPILER INVOKED BY: C:\Keil_v5\C51\BIN\C51.EXE DC_Motor_Direction_Control.c OPTIMIZE(8,SPEED) BROWSE DEBUG OBJECTEXTEND
+                    - PRINT(.\Listings\DC_Motor_Direction_Control.lst) TABS(2) OBJECT(.\Objects\DC_Motor_Direction_Control.obj)
+
+line level    source
+
+   1          //including required lib's
+   2          #include<reg51.h>
+   3          
+   4          //sbit declerations 
+   5          sbit forword_sw =  P1^0;                                      //forward switch
+   6          sbit backword_sw = P1^1;                                      //reverse switch
+   7          sbit stop_sw = P1^2;                                          //stop switch
+   8          
+   9          sbit motor_a = P2^0;                                          //IN1 terminal of motor
+  10          sbit motor_b = P2^1;                                          //IN2 terminal of motor
+  11          sbit en = P2^2;                                               //EN terminal of motor
+  12          
+  13          //forward declertion of user defined function
+  14          void delay(unsigned int);                                     //delay funcation with one parameter
+  15          
+  16          //main function
+  17          void main()
+  18          {
+  19   1        
+  20   1        while(1)                                                    //forever loop (or we can for(;;))
+  21   1        {
+  22   2          if(forword_sw == 0)                                       //if forword_sw is active low then,
+  23   2          {
+  24   3            delay(30);                                              //calling delay funcation with 30
+  25   3            en = 1;                                                 //EN is high 
+  26   3            motor_a = 1;                                            //IN1 terminal of motor is high
+  27   3            motor_b = 0;                                            //IN2 terminal of motor is low, so that clockwise rotation take place
+  28   3          }
+  29   2           else if (backword_sw == 0)
+  30   2          {
+  31   3            delay(30);                                              //calling delay funcation with 30
+  32   3            en = 1;                                                 //EN is high 
+  33   3            motor_a = 0;                                            //IN1 terminal of motor is low
+  34   3            motor_b = 1;                                            //IN2 terminal of motor is high, so that anti-clockwise rotation take
+             - place
+  35   3          }
+  36   2          else if (stop_sw == 0)
+  37   2          {
+  38   3            delay(30);                                              //calling delay funcation with 30
+  39   3            en = 0;                                                 //EN is low (no matter IN1 and IN2 is 0 or 1)
+  40   3          }
+  41   2        }
+  42   1      }
+  43          
+  44          
+  45          
+  46          //funcation defination of user defined functions
+  47          void delay(unsigned int time)                                 //delay funcation with one parameter called time
+  48          {
+  49   1        unsigned int i,j;                                           //decleration of variables inside funcation
+  50   1        for(i = 0; i < time; i++)                                   //for loop
+  51   1        {
+  52   2          for(j = 0; j < 1000; j++);                                //nested for loop
+  53   2        }
+C51 COMPILER V9.59.0.0   DC_MOTOR_DIRECTION_CONTROL                                        11/15/2023 20:57:02 PAGE 2   
+
+  54   1      }
+
+
+MODULE INFORMATION:   STATIC OVERLAYABLE
+   CODE SIZE        =     74    ----
+   CONSTANT SIZE    =   ----    ----
+   XDATA SIZE       =   ----    ----
+   PDATA SIZE       =   ----    ----
+   DATA SIZE        =   ----    ----
+   IDATA SIZE       =   ----    ----
+   BIT SIZE         =   ----    ----
+END OF MODULE INFORMATION.
+
+
+C51 COMPILATION COMPLETE.  0 WARNING(S),  0 ERROR(S)

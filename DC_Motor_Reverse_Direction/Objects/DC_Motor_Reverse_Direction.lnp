@@ -1,0 +1,4 @@
+".\Objects\STARTUP.obj",
+".\Objects\DC_Motor_Reverse_Direction.obj" 
+TO ".\Objects\DC_Motor_Reverse_Direction" 
+PRINT(".\Listings\DC_Motor_Reverse_Direction.m51")

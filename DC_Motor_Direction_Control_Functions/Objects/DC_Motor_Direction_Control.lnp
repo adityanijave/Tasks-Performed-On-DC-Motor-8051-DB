@@ -1,0 +1,5 @@
+".\Objects\STARTUP.obj",
+".\Objects\simple_dc_motorcontrol.obj",
+".\Objects\main.obj" 
+TO ".\Objects\DC_Motor_Direction_Control" 
+PRINT(".\Listings\DC_Motor_Direction_Control.m51")

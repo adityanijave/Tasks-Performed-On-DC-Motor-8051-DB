@@ -1,0 +1,4 @@
+".\Objects\STARTUP.obj",
+".\Objects\One_Switch_Motor_Direction_Control.obj" 
+TO ".\Objects\One_Switch_Motor_Direction_Control" 
+PRINT(".\Listings\One_Switch_Motor_Direction_Control.m51")

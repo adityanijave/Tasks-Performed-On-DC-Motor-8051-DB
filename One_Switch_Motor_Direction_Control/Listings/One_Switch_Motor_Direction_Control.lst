@@ -1,0 +1,104 @@
+C51 COMPILER V9.59.0.0   ONE_SWITCH_MOTOR_DIRECTION_CONTROL                                11/15/2023 21:08:05 PAGE 1   
+
+
+C51 COMPILER V9.59.0.0, COMPILATION OF MODULE ONE_SWITCH_MOTOR_DIRECTION_CONTROL
+OBJECT MODULE PLACED IN .\Objects\One_Switch_Motor_Direction_Control.obj
+COMPILER INVOKED BY: C:\Keil_v5\C51\BIN\C51.EXE One_Switch_Motor_Direction_Control.c OPTIMIZE(8,SPEED) BROWSE DEBUG OBJE
+                    -CTEXTEND PRINT(.\Listings\One_Switch_Motor_Direction_Control.lst) TABS(2) OBJECT(.\Objects\One_Switch_Motor_Direction_Co
+                    -ntrol.obj)
+
+line level    source
+
+   1          
+   2          //including required lib's
+   3          #include <REGX51.H>
+   4          
+   5          //sbit decleration
+   6          sbit sw = P1^0;
+   7          sbit motor_terminal_a = P1^6;
+   8          sbit motor_terminal_b = P1^7;
+   9          
+  10          //forward decleration of user defined funcation
+  11          void delay(unsigned int);
+  12          void forward_direction();
+  13          void reverse_direction();
+  14          void stop();
+  15          
+  16          //main funcation
+  17          void main()
+  18          {
+  19   1        //decleration of variables (local variables)
+  20   1        unsigned int flag;
+  21   1        
+  22   1        //forever loop
+  23   1        while(1)                                                              //or we can use for(;;)
+  24   1        {
+  25   2          if(sw == 0 && flag == 0 )                                           //if sw is active low and flag is 0 then,
+  26   2          { 
+  27   3            delay(1);                                                         //calling delay funcation with 1
+  28   3            forward_direction();                                              //calling forward_direction() funcation for clockwise rotati
+             -on of motor
+  29   3            flag = 1;                                                         //assign value 1 to flag variable
+  30   3          }
+  31   2          else if (sw == 0 && flag == 1)                                      //else if sw is active low and flag is 1 then,
+  32   2          {
+  33   3            delay(1);                                                         //calling delay funcation with 1
+  34   3            reverse_direction();                                              //calling reverse_direction() funcation for anti-clockwise r
+             -otation of motor
+  35   3            flag = 2;                                                         //assign value 2 to flag variable
+  36   3          }
+  37   2          else if (sw == 0 && flag == 2)                                      //else if sw is active low and flag is 2 then,
+  38   2          {
+  39   3            delay(1);                                                         //calling delay funcation with 1
+  40   3            stop();                                                           //calling reverse_direction() funcation to stop rotation of moto
+             -r
+  41   3            flag = 0;                                                         //assign value 0 to flag variable to create a loop
+  42   3          }
+  43   2        }
+  44   1      }
+  45          
+  46          
+  47          //funcation defination of user defined funcations
+  48          void forward_direction()                                                //funcation for clockwise rotation of motor
+  49          {
+  50   1        motor_terminal_a = 1;
+C51 COMPILER V9.59.0.0   ONE_SWITCH_MOTOR_DIRECTION_CONTROL                                11/15/2023 21:08:05 PAGE 2   
+
+  51   1        motor_terminal_b = 0;
+  52   1        
+  53   1      }
+  54          
+  55          void reverse_direction()                                                //funcation for anti-clockwise rotation of motor
+  56          {
+  57   1        motor_terminal_a = 0;
+  58   1        motor_terminal_b = 1;
+  59   1      }
+  60          
+  61          void stop()                                                             //funcation to stop rotation of motor
+  62          {
+  63   1        motor_terminal_a = 0;
+  64   1        motor_terminal_b = 0;
+  65   1      }
+  66          
+  67          void delay(unsigned int time)                                           //delay funcation with one parameter called time
+  68          {
+  69   1        unsigned int i,j;                                                     //decleration of variables inside the funcation
+  70   1        for(i = 0; i < time; i++)                                             //for loop
+  71   1        {
+  72   2          for(j = 0; j < 1000; j++);                                          //nested for loop
+  73   2        }
+  74   1      }
+
+
+MODULE INFORMATION:   STATIC OVERLAYABLE
+   CODE SIZE        =    125    ----
+   CONSTANT SIZE    =   ----    ----
+   XDATA SIZE       =   ----    ----
+   PDATA SIZE       =   ----    ----
+   DATA SIZE        =   ----       2
+   IDATA SIZE       =   ----    ----
+   BIT SIZE         =   ----    ----
+END OF MODULE INFORMATION.
+
+
+C51 COMPILATION COMPLETE.  0 WARNING(S),  0 ERROR(S)

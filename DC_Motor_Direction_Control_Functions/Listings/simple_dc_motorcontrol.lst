@@ -1,0 +1,46 @@
+C51 COMPILER V9.59.0.0   SIMPLE_DC_MOTORCONTROL                                            11/15/2023 19:11:24 PAGE 1   
+
+
+C51 COMPILER V9.59.0.0, COMPILATION OF MODULE SIMPLE_DC_MOTORCONTROL
+OBJECT MODULE PLACED IN .\Objects\simple_dc_motorcontrol.obj
+COMPILER INVOKED BY: C:\Keil_v5\C51\BIN\C51.EXE simple_dc_motorcontrol.c OPTIMIZE(8,SPEED) BROWSE DEBUG OBJECTEXTEND PRI
+                    -NT(.\Listings\simple_dc_motorcontrol.lst) TABS(2) OBJECT(.\Objects\simple_dc_motorcontrol.obj)
+
+line level    source
+
+   1          //inclding required lib's
+   2          #include"simple_dc_motorcontrol.h"
+   3          
+   4          //function defination of user defined functions
+   5          void forword_motion()                                 //function for forward rotation of motor
+   6          {
+   7   1        I1 = 1;
+   8   1        I2 = 0;
+   9   1      }
+  10          
+  11          void reverse_motion()                                 //function for reverse rotation of motor
+  12          {
+  13   1        I1 = 0;
+  14   1        I2 = 1;
+  15   1      }
+  16          
+  17          
+  18          void stop_motion()                                  //function to stop rotation of motor
+  19          {
+  20   1        I1 = 0;
+  21   1        I2 = 0;
+  22   1      }
+
+
+MODULE INFORMATION:   STATIC OVERLAYABLE
+   CODE SIZE        =     15    ----
+   CONSTANT SIZE    =   ----    ----
+   XDATA SIZE       =   ----    ----
+   PDATA SIZE       =   ----    ----
+   DATA SIZE        =   ----    ----
+   IDATA SIZE       =   ----    ----
+   BIT SIZE         =   ----    ----
+END OF MODULE INFORMATION.
+
+
+C51 COMPILATION COMPLETE.  0 WARNING(S),  0 ERROR(S)
